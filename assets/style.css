@@ -1,7 +1,12 @@
 * {
     background-color: rgb(212, 169, 236);
 }
-img {
+.horizontal {
     height: 300px;
     width: fit-content;
+}
+
+.vertical {
+    width: 300px;
+    height: fit-content;
 }

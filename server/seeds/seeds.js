@@ -1,5 +1,6 @@
 const db = require("../config/connection");
 const { User, Image, Category } = require("../models");
+require("dotenv").config();
 
 db.once("open", async () => {
   await Image.deleteMany({});
@@ -18,7 +19,7 @@ db.once("open", async () => {
   const user = await User.create({
     username: "oliviamckee",
     email: "olivia.mckee97@gmail.com",
-    password: "phoebe",
+    password: process.env.PASSWORD,
   });
   console.log("users seeded");
 

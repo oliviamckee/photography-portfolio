@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* general */
+:root {
+  --primary: #420039ff;
+  --secondary: #932f6dff;
+  --tertiary: #dcccffff;
+  --quaternary: rgb(184, 164, 226);
+}
+
+* {
+  color: var(--primary);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+html,
+body,
+#main {
+  background-color: var(--tertiary);
+}
+
+#main {
+  margin-top: 120px;
+}
+
+/* buttons */
+.button1 {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid var(--orchid);
+  border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--tertiary);
+  text-decoration: none;
+}
+
+.button1:hover {
+  color: var(--tertiary);
+  font-weight: bold;
+}
+
+/* header */
+header {
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#pageTitle {
+  text-decoration: none;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+footer a:hover {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* image card */
+
+.imageCard {
+  border: 2px solid var(--secondary);
+  border-radius: 15px;
+  background-color: var(--primary);
+  margin: 20px;
+  padding: 20px;
+}
+
+.imageCard img {
+  max-width: 500px;
+  border: 2px solid var(--secondary);
+  border-radius: 15px;
+}
+
+.imageCard p {
+  color: var(--tertiary);
+}
+
+.usernameLink {
+  text-decoration: none;
+  color: var(--tertiary);
+}
+
+.usernameLink:hover {
+  font-weight: bold;
+  color: var(--tertiary);
+}

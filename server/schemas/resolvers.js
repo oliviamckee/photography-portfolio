@@ -1,4 +1,4 @@
-const { User, Image, Category } = require('../models');
+const { User, Image } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -9,8 +9,7 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('images')
-                    .populate('category');
+                    .populate('images');
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
@@ -19,7 +18,6 @@ const resolvers = {
         images: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Image.find(params)
-                .populate('category')
                 .sort({ createdAt: -1 });
         },
         // get images by category
@@ -30,16 +28,16 @@ const resolvers = {
                 params.category = category;
             }
 
-            return await Image.find(params).populate('category');
+            return await Image.find(params);
         },
         // get image by id
         image: async (parent, { _id }) => {
-            return Image.findById(_id).populate('category');
+            return Image.findById(_id);
         },
         //get all categories
-        categories: async () => {
-            return await Category.find();
-        },
+        // categories: async () => {
+        //     return await Category.find();
+        // },
         // get a user by username
         user: async (parent, { username }) => {
             return User.findOne({ username })
@@ -48,12 +46,12 @@ const resolvers = {
         },
     },
     Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
+        // addUser: async (parent, args) => {
+        //     const user = await User.create(args);
+        //     const token = signToken(user);
 
-            return { token, user };
-        },
+        //     return { token, user };
+        // },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 

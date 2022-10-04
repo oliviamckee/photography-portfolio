@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const imageSchema = new Schema(
     {
-        alt: {
+        title: {
             type: String,
             required: true
         },
@@ -20,13 +20,8 @@ const imageSchema = new Schema(
             type: String,
             required: true
         },
-        description: {
-            type: String,
-            required: false
-        },
         category: {
-            type: Schema.Types.ObjectId,
-            ref: 'Category',
+            type: String,
             required: true
         }
     },

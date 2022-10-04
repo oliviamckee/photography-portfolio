@@ -1,19 +1,14 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-type Category {
-  _id: ID
-  name: String
-}
 
   type Image {
     _id: ID
-    alt: String
+    title: String
     createdAt: String
     username: String
     url: String
-    description: String
-    category: Category
+    category: String
   }
 
   type User {
@@ -32,15 +27,13 @@ type Category {
     me: User
     user(username: String!): User
     images(username: String): [Image]
-    imagesCategory(category: ID): [Image]
+    imagesCategory(category: String): [Image]
     image(_id: ID!): Image
-    categories: [Category]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    addImage(alt: String!, url: String!, description: String, category: String!): Image
+    addImage(title: String!, url: String!, category: String!): Image
   }
 `;
 

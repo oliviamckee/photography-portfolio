@@ -9,28 +9,17 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <div>
-        <Link to="/" id="pageTitle">
-          <h1 className="m-3">Photography</h1>
-        </Link>
-
-        <nav>
-          {Auth.loggedIn() ? (
-            <>
-              <Link to="/profile">Me</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-            </>
-          ) : (
-            <>
-              <Link className="button1" to="/login">Login</Link>
-              <Link className="button1" to="/signup">Signup</Link>
-            </>
-          )}
-        </nav>
-      </div>
+    <header className='d-flex justify-content-between'>
+      <Link to="/" id="pageTitle">
+        <h1 className="m-3">Olivia's Photography</h1>
+      </Link>
+      <nav className='m-3'>
+        {Auth.loggedIn() ? (<>
+          <a href="/" className="button2" onClick={logout}>Logout</a>
+        </>) : (<>
+          <Link className="button2" to="/login">Login</Link>
+        </>)}
+      </nav>
     </header>
   );
 };

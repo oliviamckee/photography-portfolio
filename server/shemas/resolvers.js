@@ -72,6 +72,7 @@ const resolvers = {
         },
         // context broken here too
         addImage: async (parent, args, context) => {
+            console.log(context);
             console.log(context.user);
             if (context.user) {
                 const image = await Image.create({ ...args, username: context.user.username });

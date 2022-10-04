@@ -11,3 +11,103 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* general */
+:root {
+  --dark-purple: #420039ff;
+  --amaranth-m-p: #932f6dff;
+  --orchid: #e07be0ff;
+  --lavender-blue: #dcccffff;
+  --magnolia: #f6f2ffff;
+}
+
+* {
+  color: var(--dark-purple);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+html,
+body,
+#main {
+  background-color: var(--dark-purple);
+}
+
+#main {
+  margin-top: 120px;
+}
+
+/* buttons */
+.button1 {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid var(--orchid);
+  border-radius: 5px;
+  background-color: var(--amaranth-m-p);
+  color: var(--lavender-blue);
+  text-decoration: none;
+}
+
+.button1:hover {
+  color: var(--lavender-blue);
+  font-weight: bold;
+}
+
+/* header */
+header {
+  background-color: var(--orchid);
+  height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#pageTitle {
+  color: var(--dark-purple);
+  text-decoration: none;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--orchid);
+  padding: 10px;
+}
+
+footer a {
+  color: var(--dark-purple);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--dark-purple);
+  font-weight: bold;
+}
+
+/* image card */
+
+.imageCard {
+  border: 2px solid var(--dark-purple);
+  border-radius: 15px;
+  background-color: var(--lavender-blue);
+  margin: 20px;
+  padding: 20px;
+}
+
+.imageCard img {
+  max-width: 500px;
+  border: 2px solid var(--dark-purple);
+  border-radius: 15px;
+}
+
+.usernameLink {
+  color: var(--amaranth-m-p);
+  text-decoration: none;
+}
+
+.usernameLink:hover {
+  color: var(--amaranth-m-p);
+  font-weight: bold;
+}

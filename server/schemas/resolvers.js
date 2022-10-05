@@ -50,7 +50,6 @@ const resolvers = {
         },
         // jk it works 
         addImage: async (parent, args, context) => {
-            console.log(context.user);
             if (context.user) {
                 const image = await Image.create(args);
 

@@ -10,8 +10,7 @@ const Home = () => {
     const [categories] = useState([
         { name: "People" },
         { name: "Places" },
-        { name: "Animals" },
-        { name: "Things" }
+        { name: "Animals" }
     ]);
 
     const [currentCategory, setCurrentCategory] = useState();

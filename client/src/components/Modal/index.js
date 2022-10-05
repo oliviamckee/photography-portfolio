@@ -1,11 +1,30 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { DELETE_IMAGE } from "../../utils/mutations";
 
 function Modal({ onClose, currentPhoto }) {
     const { title, createdAt, url, _id } = currentPhoto;
 
-    const deleteSubmit = async (event) => {
-        console.log("delete button clicked");
+    const [deleteImage] = useMutation(DELETE_IMAGE, {
+        update(cache, { data: { deleteImage } }) {
+            const { images } = cache.readQuery({ query: DELETE_IMAGE });
+            cache.writeQuery({
+                query: DELETE_IMAGE,
+                data: { images: [deleteImage, ...images] },
+            });
+        },
+    });
+
+    const deleteSubmit = async () => {
+        try {
+            await deleteImage({
+                variables: { id: _id },
+            });
+        } catch (e) {
+            console.error(e);
+        }
+        window.location.reload(false);
     };
 
     return (

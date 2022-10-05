@@ -80,7 +80,6 @@ const AddImage = () => {
                         <option value="People">People</option>
                         <option value="Places">Places</option>
                         <option value="Animals">Animals</option>
-                        <option value="Things">Things</option>
                     </select>
                 </div>
                 <div className="form-group">

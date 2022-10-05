@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactCloudinaryUploader from "@app-masters/react-cloudinary-uploader";
 import { QUERY_IMAGE } from "../utils/queries";
 import { EDIT_IMAGE } from "../utils/mutations";
@@ -49,11 +49,12 @@ const EditImage = () => {
             const { images } = cache.readQuery({ query: EDIT_IMAGE });
             cache.writeQuery({
                 query: EDIT_IMAGE,
-                data: { suds: [editImage, ...images] },
+                data: { images: [editImage, ...images] },
             });
         },
     });
 
+    const navigate = useNavigate();
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -61,12 +62,14 @@ const EditImage = () => {
                 variables: {
                     title,
                     category,
-                    url
+                    url,
+                    id
                 },
             });
         } catch (e) {
             console.error(e);
         }
+        navigate("/");
     };
 
     return (
@@ -88,7 +91,6 @@ const EditImage = () => {
                         <option value="People">People</option>
                         <option value="Places">Places</option>
                         <option value="Animals">Animals</option>
-                        <option value="Things">Things</option>
                     </select>
                 </div>
                 <div className="form-group">

@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Modal({ onClose, currentPhoto }) {
-    const { title, createdAt, url } = currentPhoto;
+    const { title, createdAt, url, _id } = currentPhoto;
+
+    const deleteSubmit = async (event) => {
+        console.log("delete button clicked");
+    };
 
     return (
         <div className="modalBackdrop" onClick={onClose}>
@@ -16,6 +21,10 @@ function Modal({ onClose, currentPhoto }) {
                     </div>
                 </div>
                 <img className="modalImage img-fluid pb-2 px-2" src={url} alt={title} />
+                <div>
+                    <Link className='button1 p-2' to={`/edit/${_id}`}>Edit</Link>
+                    <button className='button1' onClick={deleteSubmit}>Delete</button>
+                </div>
             </div>
         </div>
     );

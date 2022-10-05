@@ -6,7 +6,6 @@ const typeDefs = gql`
     _id: ID
     title: String
     createdAt: String
-    username: String
     url: String
     category: String
   }
@@ -26,14 +25,15 @@ const typeDefs = gql`
   type Query {
     me: User
     user(username: String!): User
-    images(username: String): [Image]
-    imagesCategory(category: String): [Image]
+    images: [Image]
     image(_id: ID!): Image
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addImage(title: String!, url: String!, category: String!): Image
+    editImage(_id: ID!, title: String!, url: String!, category: String!): Image
+    deleteImage(_id: ID!): Image
   }
 `;
 

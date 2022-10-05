@@ -10,7 +10,6 @@ query User($username: String!) {
       _id
       title
       createdAt
-      username
       url
       category
     }
@@ -23,31 +22,6 @@ query Images {
     _id
     title
     createdAt
-    username
-    url
-    category
-  }
-}`
-
-export const QUERY_IMAGES_USERNAME = gql`
-query Images($username: String) {
-  images(username: $username) {
-    _id
-    title
-    createdAt
-    username
-    url
-    category
-  }
-}`
-
-export const QUERY_IMAGES_CATEGORY = gql`
-query ImagesCategory($category: String) {
-  imagesCategory(category: $category) {
-    _id
-    title
-    createdAt
-    username
     url
     category
   }
@@ -59,7 +33,6 @@ query Image($id: ID!) {
     _id
     title
     createdAt
-    username
     url
     category
   }

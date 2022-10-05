@@ -16,7 +16,6 @@ db.once("open", async () => {
   const userId = user._id;
   const createdImage = await Image.create({
     title: "Winter in the Poudre Canyon",
-    username: "oliviamckee",
     url: "https://res.cloudinary.com/oliviacm/image/upload/v1664836029/6_nys9lx.jpg",
     category: "Places",
   });

@@ -42,11 +42,12 @@ const Login = (props) => {
   return (
     <main>
       <div>
-        <div>
+        <div className='p-3 mx-auto w-25'>
           <h4>Login</h4>
           <div>
             <form onSubmit={handleFormSubmit}>
               <input
+                className='form-control mb-1'
                 placeholder='Your email'
                 name='email'
                 type='email'
@@ -55,6 +56,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
+                className='form-control'
                 placeholder='******'
                 name='password'
                 type='password'
@@ -62,7 +64,7 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button type='submit'>
+              <button className="button1" type='submit'>
                 Submit
               </button>
             </form>

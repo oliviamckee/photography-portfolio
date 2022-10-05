@@ -12,10 +12,6 @@ const imageSchema = new Schema(
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
-        username: {
-            type: String,
-            required: true
-        },
         url: {
             type: String,
             required: true

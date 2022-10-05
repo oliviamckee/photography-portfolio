@@ -1,16 +1,24 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import ReactCloudinaryUploader from "@app-masters/react-cloudinary-uploader";
-import { QUERY_IMAGES } from "../../utils/queries";
-import { ADD_IMAGE } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
+import { QUERY_IMAGE } from "../utils/queries";
+import { EDIT_IMAGE } from "../utils/mutations";
+import { useQuery, useMutation } from "@apollo/client";
 
-const AddImage = () => {
-    const [title, setTitle] = useState("");
+const EditImage = () => {
+    const { id } = useParams();
+    const { data } = useQuery(QUERY_IMAGE, {
+        variables: { id: id },
+    });
+
+    const image = data?.image || [];
+
+    const [title, setTitle] = useState(image.title);
     const titleChange = (event) => {
         setTitle(event.target.value);
     };
 
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState(image.category);
     const categoryChange = (event) => {
         setCategory(event.target.value);
     };
@@ -23,7 +31,7 @@ const AddImage = () => {
         returnJustUrl: true
     };
 
-    const [url, setUrl] = useState("");
+    const [url, setUrl] = useState(image.url);
 
     const uploadImage = (event) => {
         event.preventDefault();
@@ -36,20 +44,20 @@ const AddImage = () => {
     }
     // end cloudinary
 
-    const [addImage] = useMutation(ADD_IMAGE, {
-        update(cache, { data: { addImage } }) {
-            const { images } = cache.readQuery({ query: QUERY_IMAGES });
+    const [editImage] = useMutation(EDIT_IMAGE, {
+        update(cache, { data: { editImage } }) {
+            const { images } = cache.readQuery({ query: EDIT_IMAGE });
             cache.writeQuery({
-                query: QUERY_IMAGES,
-                data: { images: [addImage, ...images] },
+                query: EDIT_IMAGE,
+                data: { suds: [editImage, ...images] },
             });
         },
     });
 
     const handleFormSubmit = async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         try {
-            await addImage({
+            await editImage({
                 variables: {
                     title,
                     category,
@@ -96,4 +104,4 @@ const AddImage = () => {
     )
 }
 
-export default AddImage;
+export default EditImage;

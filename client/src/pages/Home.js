@@ -62,7 +62,7 @@ const Home = () => {
                 {isAddOpen ? (
                     <AddImage />
                 ) : (
-                    <div className='d-flex flex-wrap justify-content-around'>
+                    <div className='d-flex flex-wrap justify-content-center'>
                         {filterImages().map((image, i) => (
                             <Image key={image._id}
                                 image={image}

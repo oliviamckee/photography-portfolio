@@ -42,7 +42,7 @@ const Login = (props) => {
   return (
     <main>
       <div>
-        <div className='p-3 mx-auto w-25'>
+        <div id="login" className='p-3 mx-auto'>
           <h4>Login</h4>
           <div>
             <form onSubmit={handleFormSubmit}>

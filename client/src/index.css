@@ -150,3 +150,13 @@ footer a:hover {
 .modalContainer h4 {
   color: var(--tertiary);
 }
+
+/* login */
+#login {
+  width: 300px;
+}
+
+/* contact */
+#contact {
+  max-width: 700px;
+}

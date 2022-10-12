@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import EditImage from './pages/EditImage';
+import Contact from './pages/Contact';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,6 +42,7 @@ function App() {
               <Route path="*" element={<NoMatch />} />
               <Route path="/login" element={<Login />} />
               <Route path="/edit/:id" element={<EditImage />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
           <Footer />

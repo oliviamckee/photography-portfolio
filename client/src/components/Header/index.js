@@ -14,6 +14,7 @@ const Header = () => {
         <h1 className="m-3">Olivia's Photography</h1>
       </Link>
       <nav className='m-3'>
+        <Link className='button2' to="/contact">Contact</Link>
         {Auth.loggedIn() ? (<>
           <a href="/" className="button2" onClick={logout}>Logout</a>
         </>) : (<>

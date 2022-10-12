@@ -8,9 +8,13 @@ const Header = () => {
     Auth.logout();
   };
 
+  const homeClick = () => {
+    window.location.reload();
+  }
+
   return (
     <header className='d-flex justify-content-between'>
-      <Link to="/" id="pageTitle">
+      <Link to="/" id="pageTitle" onClick={homeClick}>
         <h1 className="m-3">Olivia's Photography</h1>
       </Link>
       <nav className='m-3'>
